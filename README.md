@@ -47,7 +47,7 @@ IoT 개발자과정 ASP.NET 리포지토리
         - hr : 가로선
         - 특수문자 : & ; 사이에 영문자로 표시(너무 많음!)
         - strong 또는 b : 볼드체
-        - em : 이탤릭체
+        - em | i : 이탤릭체
         - mark : 형광펜 효과
         - small, sub, sup : 글자 작게, 아래첨자, 윗첨자
         - u, strike : 밑줄, 취소선
@@ -62,7 +62,7 @@ IoT 개발자과정 ASP.NET 리포지토리
         - 내부 스크립트, 외부 스크립트, 인라인 스크립트
     
     - 오류, 디버그
-        - F12 개발자도구로 활용
+        - 웹브라우저 F12 개발자도구로 활용
 
     - 양식태그(body > form안에 사용 필수)
         - front-end 입력한 내용이 back-end로 보내기위한 관문
@@ -77,7 +77,7 @@ IoT 개발자과정 ASP.NET 리포지토리
             - file : 파일 업로드
             - image : 이미지(img와 유사)
             - reset : 폼내의 입력양식테그 값 초기화
-            - hidden : 숨김 값(유용하게 사용!)
+            - hidden : 숨김값(유용하게 사용!)
         - textarea : 여러행 텍스트 입력
         - select, option : 콤보박스
         - filedset : 그룹박스
@@ -92,7 +92,14 @@ IoT 개발자과정 ASP.NET 리포지토리
 
 ## 2일차
 - HTML5
-    - 시멘틱 태그
+    - 시멘틱 웹 - 시멘틱 태그로 화면의 구조를 잡는 웹구성 방식
+        - header, main, contect, nav, footer, aside, section, article... 구조태그(화면에 안나타남) 태그 사용
+        - 시멘틱 태그를 div로 바꿔도 똑같이 동작하기 때문에 요새는 많이 사용안함. 걷어내고 있는 추세
+
 - CSS3
-    - 웹 디자인 핵심
+    - 웹 디자인 핵심, Cascading Style Sheets
+    - 상단에서부터 <body> 부터 하위의 태그들에 계속해서 적용되는 스타일이라는 뜻
+    - 선택자에게 주어지는 디자인 속성
+    - 선택자(selector)
+    - 속성 (property)
 - JavaScript
