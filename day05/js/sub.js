@@ -1,0 +1,29 @@
+/* 회전버튼 동작 */
+const rotateBtn = document.querySelector('.rotate-btn');
+const slides = document.querySelectorAll('.bg-slide');
+const totalSlides = slides.length; // 5개
+let index = 0;
+
+// $('.rotate-btn').on('click', funtion()); 와 동일
+rotateBtn.addEventListener('click', function(){
+    rotateBtn.classList.add('active');
+    setTimeout(()=> {
+        rotateBtn.classList.remove('active');
+    },2100);
+
+    slides.forEach(slide => {
+        if (slide.classList.contains('active')){
+            slide.classList.add('after-active');
+        }else{
+            slide.classList.remove('after-active');
+        }
+    })
+
+    slides[index].classList.remove('active'); // 현재 슬라이드는 active 제거
+    index += 1;
+
+    if (index == totalSlides) index = 0;
+
+    slides[index].classList.add('active');
+});
+
