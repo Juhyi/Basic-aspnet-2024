@@ -201,7 +201,7 @@ IoT 개발자과정 ASP.NET 리포지토리
 - HTML + CSS + js(jQuery) 응용
     - 웹페이지 클로닝
         - codehal 슬라이더 에니메이션 웹페이지 튜토리얼 따라하기 (완료)
-
-    
+          
+        https://github.com/Juhyi/Basic-aspnet-2024/assets/158007405/4094b5ab-8ff8-4a3f-b861-e834383d597b
 
     - 개인 웹페이지 클로닝
