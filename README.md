@@ -1,5 +1,5 @@
 # Basic-aspnet-2024
-IoT 개발자과정 ASP.NET 리포지토리
+IoT 개발자과정 ASP.NET 리포지토리 ✏️
 
 ## 1일차
 - 웹기술 개요
