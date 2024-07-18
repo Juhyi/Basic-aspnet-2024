@@ -12,8 +12,8 @@ using MyPortfolio.Data;
 namespace MyPortfolio.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240716080254_Updae-Database")]
-    partial class UpdaeDatabase
+    [Migration("20240718003204_BoardToDb")]
+    partial class BoardToDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,7 +40,7 @@ namespace MyPortfolio.Migrations
                     b.Property<int>("Hit")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("ModeDate")
+                    b.Property<DateTime>("ModDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
@@ -63,7 +63,7 @@ namespace MyPortfolio.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Boards");
+                    b.ToTable("Board");
                 });
 #pragma warning restore 612, 618
         }

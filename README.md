@@ -302,6 +302,12 @@ IoT 개발자과정 ASP.NET 리포지토리 ✏️
         - 브라우저 화면 클릭, thisisunsafe 입력 엔터
     
 ## 9일차 (07.16)
+필요 이론
+- 연습
+- 개인 포트폴리오 웹사이트
+- Bootstrap 테마 적용
+
+
 - ASP.NET Core MVC
     - MVC 리뷰
         - Model은 개발자가 따로 만듦
@@ -346,13 +352,34 @@ IoT 개발자과정 ASP.NET 리포지토리 ✏️
 ## 10일차
 - ASP.NET Core 포트폴리오 웹사이트, MyPortfoilo
     1. Board.cs 멤버속성 ModDate로 이름 변경
-    2. 테이블 삭제, 재생성
-    3. 게시판 관련된 화면 수정작업
-    4. 페이징!!
+        - BoardController.cs에서 ModeDate -> ModData로 변경
+        - View/Board/*.cshtml ModeData -> ModData로 변경
+    2. ASP.NET Core 템플릿으로 만들어주는 CRUD(Insert, Select, Update, Delete)    
+    3. 테이블 삭제, 재생성
+    4. 게시판 관련된 화면 수정작업
+        - Views/board/index.cshtml 게시판 리스트화면 수정
+        - Index.cshtml 테이블 틀 변경, 삭제, 수정, 삭제버튼 삭제
+        - Models/Board.cs에 테이블 한글이름 추가 DisplayName() 이용
+
+        - Views/Board/Details.cshtml 부트스트랩 적용
+        - 수정/ 삭제 등 버큰 디자인 적용
+        - Views/board/Create.cshtml 부트스트랩 적용
+        
+    5. SSMS에서 Board테이블 Hit, RegDate, ModDate Null 허용으로 변경
+    
+    6. 웹사이트 동작 순서
+        1. https://localhost:7165/Board/Create 링크오픈
+        2. BoardController -> Create 액션메서드
+        3. Submit -> BoardController -> Create 액션메서드 발동
+        4. Create 액션 메서드 내 로직처리 DB에 데이터 입력
+        5. Models/Board.cs ModDate -> ModDate? Nullable로 변경
+        5. Edit 동일, Create.cshtml 내용을 그대로 복사/ 붙여넣기 단, asp-action="Edit"로 변경
+
+## 11일차 
+- ASP.NET Core 포트폴리오 웹사이트, MyPortfoilo
+    7. 게시글 삭제
+    8. 페이징!!
+    9. 회원가입, 로그인 ...
+    10. 관리자모드/페이지
 
 
-
-    필요 이론
-    - 연습
-    - 개인 포트폴리오 웹사이트
-    - Bootstrap 테마 적용
