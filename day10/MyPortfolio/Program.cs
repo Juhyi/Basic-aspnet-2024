@@ -1,6 +1,7 @@
 using Microsoft.CodeAnalysis.Options;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.Data;
+using Westwind.AspNetCore.Markdown;
 
 namespace MyPortfolio
 {
@@ -16,6 +17,10 @@ namespace MyPortfolio
             builder.Services.AddDbContext<AppDbContext>(Option => Option.UseSqlServer(
                 builder.Configuration.GetConnectionString("Myconnection")));
 
+            // MarkDown 관련 설정
+            builder.Services.AddMarkdown();
+            builder.Services.AddMvc().AddApplicationPart(typeof(MarkdownPageProcessorMiddleware).Assembly);
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -25,6 +30,9 @@ namespace MyPortfolio
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            // 마크다운 사용설정
+            app.UseMarkdown();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
