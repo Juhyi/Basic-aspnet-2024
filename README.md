@@ -409,6 +409,10 @@ IoT 개발자과정 ASP.NET 리포지토리 ✏️
                 )	AS base
                 WHERE base.rowNum BETWEEN 11 AND 20  -- 1과 10에 10씩 더하면 다음 페이지를 조회 쿼리
                 ```
+
+https://github.com/user-attachments/assets/5f67d094-3f78-48ed-9f42-e64de5c36929
+
+
             3. Index() 내 로직 수정
             4. Views/Board/Index.cshtml 화면코드 수정
     5. 검색
