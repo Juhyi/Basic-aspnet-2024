@@ -462,6 +462,10 @@ https://github.com/user-attachments/assets/5f67d094-3f78-48ed-9f42-e64de5c36929
         3. Login.cshtml에 C# Razor tag로 변경
         4. HomeController.cs Login Post 메서드 작성
         5. Logout GET 메서드 추가
+      
+        https://github.com/user-attachments/assets/e9836b46-12ab-480e-bec1-79806a36e8fc
+
+  
     3. 이력서, 프로젝트, 컨텍트 페이지 구현하기
     4. 관리자모드/페이지
     5. 자신 컴퓨터 IIS 서버에 웹사이트 올리기
