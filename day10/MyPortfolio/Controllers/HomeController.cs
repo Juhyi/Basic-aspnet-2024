@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MyPortfolio.Data;
 using MyPortfolio.Helper;
 using MyPortfolio.Models;
 using System.Diagnostics;
-using System.Security.Cryptography;     // 암호화
+using System.Security.Cryptography; // 암호화
 
 namespace MyPortfolio.Controllers
 {
@@ -15,7 +16,7 @@ namespace MyPortfolio.Controllers
         //public HomeController(ILogger<HomeController> logger, AppDbContext context)
         //{
         //    _logger = logger;
-        //    _context = context; //DB를 연결해서 사용하겠다는 초기화
+        //    _context = context; // DB를 연결해서 사용하겠다는 초기화
         //}
 
         public HomeController(AppDbContext context)
@@ -51,15 +52,16 @@ namespace MyPortfolio.Controllers
         [HttpPost]
         public IActionResult Login(User user)
         {
-            // userEmail, password md5로 암호화
+            // userEmail, password md5로 암호화 
             // DB에 있는 값과 비교
             var mdHash = MD5.Create();
-            user.Password = common.GetMd5Hash(mdHash, user.Password);   //로그인창에 입력한 암호를 암호화
+            user.Password = Common.GetMd5Hash(mdHash, user.Password); // 로그인창에 입력한 암호를 암호화
 
-            var result = _context.User.FirstOrDefault(u => u.UserEmail== user.UserEmail && u.Password == user.Password);  
+            var result = _context.User.FirstOrDefault(u => u.UserEmail == user.UserEmail && u.Password == user.Password);
+
             if (result == null) // 로그인할 사람이 없다
             {
-                return  View(user); 
+                return View(user);
             }
             else
             {
@@ -68,10 +70,8 @@ namespace MyPortfolio.Controllers
                 HttpContext.Session.SetString("USER_NAME", result.UserName);
                 HttpContext.Session.SetString("USER_EMAIL", result.UserEmail);
 
-
-                return RedirectToAction("Index", "Home");   // 로그인 완료
+                return RedirectToAction("Index", "Home"); // 로그인 완료
             }
-
         }
 
         [HttpGet]
@@ -92,34 +92,36 @@ namespace MyPortfolio.Controllers
             return View();
         }
 
-        // 회원등록 페이지 내용을 DB에 저장해줘
+        // 회워등록 페이지 내용을 DB에 저장해줘.
         [HttpPost]
         public async Task<IActionResult> Register(User user)
         {
-            // 패스워드 두개가 일치하지 않을때 의도적으로 거증에러를 발생
-            if(user.Password != user.PasswordCheck)
+            // 패스워드 두개가 일치하지 않을때 일부러 검증에러를 발생!
+            if (user.Password != user.PasswordCheck)
             {
-                ModelState.AddModelError("PasswordCheck", "패스워드가 일치하지 않습니다");
+                ModelState.AddModelError("PasswordCheck", "패스워드가 일치하지 않습니다.");
             }
-
 
             if (ModelState.IsValid)
             {
-                // 모든 값이 정확히 들어왔음
-                user.RegDate = DateTime.Now;    // 등록날짜 오늘
+                // 모든값이 정확히 들어왔음
+                user.RegDate = DateTime.Now; // 회원 등록날짜 오늘로 지정
 
                 var mdHash = MD5.Create();
-                user.Password = common.GetMd5Hash(mdHash, user.Password);
+                user.Password = Common.GetMd5Hash(mdHash, user.Password);
                 user.PasswordCheck = null;
-                _context.Add(user); //  INSERT
-                await _context.SaveChangesAsync(); // COMMIT    
+
+                _context.Add(user); // INSERT
+                await _context.SaveChangesAsync(); // COMMIT
                 return RedirectToAction("Login");
             }
 
             return View(user);
         }
 
-        
-        
+        public IActionResult Project()
+        {
+            return View(); 
+        }
     }
 }
